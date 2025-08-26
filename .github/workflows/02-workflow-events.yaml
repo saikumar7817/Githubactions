@@ -4,7 +4,7 @@ on:
  workflow_dispatch:
     
 jobs:
-    echo:
+    echo-hello:
         runs-on: ubuntu-latest
         steps:
             - name:  Show the trigger
