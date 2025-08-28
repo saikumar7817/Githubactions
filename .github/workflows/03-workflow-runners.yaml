@@ -1,7 +1,7 @@
 name: workflow-runners
 
 on:
- push:
+ workflow_dispatch:
 
 jobs:
  ubuntu-echo:
