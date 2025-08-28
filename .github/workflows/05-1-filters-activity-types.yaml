@@ -1,0 +1,18 @@
+name: 05 - 1 - Event Filters and Activity Types
+on:
+ pull_request:
+  types:
+   - opened
+   - synchronize
+  branch:
+   - main
+jobs:
+ echo:
+   runs-on: ubuntu-latest
+   steps:
+     - name: echo
+       run: |
+          echo "Running whenever a PR is opened or synchronized AND base branch is main."
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "Base Branch: ${{ github.event.pull_request.base.ref }}"
+          echo "Head Branch: ${{ github.event.pull_request.head.ref }}"
