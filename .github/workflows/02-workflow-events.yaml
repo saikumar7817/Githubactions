@@ -1,6 +1,5 @@
 name: workflow-events
 on:
- pull_request:
  workflow_dispatch:
     
 jobs:
