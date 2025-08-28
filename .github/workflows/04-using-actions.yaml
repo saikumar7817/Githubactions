@@ -10,3 +10,10 @@ jobs:
        uses: actions/checkout@v4
      - name: Printing Folders
        run: ls
+     - name: setup node env
+       uses: actions/setup-node@v3
+       with:
+         node-version: '20.*'
+     - name: install dependencies
+       run: npm ci
+       working-directory: 04-using-actions/react-app
