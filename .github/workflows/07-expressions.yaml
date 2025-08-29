@@ -13,7 +13,7 @@ jobs:
   runs-on: ubuntu-latest
   steps:
    - name: [debug] Print start-up data
-     if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug == true}}
+     if: ${{ inputs.debug == true}}
      run: |
           echo "Triggered by: ${{ github.event_name }}"
           echo "Branch: ${{ github.ref }}"
