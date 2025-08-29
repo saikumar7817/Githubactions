@@ -1,0 +1,23 @@
+name: 07-Using Expressions
+on:
+ push:
+ workflow_dispatch:
+  inputs:
+   debug:
+    description: 'Enable debug logging'
+    type: boolean
+    default: false
+    required: false
+jobs:
+ echo:
+  runs-on: ubuntu-latest
+  steps:
+   - name: [debug] Print start-up data
+     if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug == true}}
+     run: |
+          echo "Triggered by: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Runner OS: ${{ runner.os }}"
+
+       
