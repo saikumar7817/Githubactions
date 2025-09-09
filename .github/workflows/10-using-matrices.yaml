@@ -1,0 +1,28 @@
+name: Matrix Practice
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-matrix:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [14, 16, 18]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Run a test script
+        run: |
+          echo "Running on OS: ${{ matrix.os }}"
+          echo "Using Node.js version: ${{ matrix.node }}"
