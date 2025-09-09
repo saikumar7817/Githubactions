@@ -8,3 +8,17 @@ jobs:
   steps:
    - name: echo staging
      run: echo " ${{vars.MY_ENV_VALUE}} "
+ e2e-testing:
+  runs-on: ubuntu-latest
+  needs: deploy-staging
+  steps:
+   - name: echo staging
+     run: echo " tests are done "
+  deploy-prod:
+  runs-on: ubuntu-latest
+  environment: Prod
+  needs: e2e-testing
+  steps:
+   - name: echo prod
+     run: echo " ${{vars.MY_ENV_VALUE}} " 
+  
