@@ -1,28 +1,22 @@
-name: Matrix Practice
+name: Matrix with Include
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  test-matrix:
-    runs-on: ${{ matrix.os }}
+  test:
+    runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        node: [14, 16, 18]
+        node: [14, 16]
+        os: [ubuntu-latest]
+        include:
+          - node: 18
+            os: windows-latest
+            custom: "extra test"
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Run a test script
+      - name: Show matrix values
         run: |
-          echo "Running on OS: ${{ matrix.os }}"
-          echo "Using Node.js version: ${{ matrix.node }}"
+          echo "Node version: ${{ matrix.node }}"
+          echo "OS: ${{ matrix.os }}"
+          echo "Custom: ${{ matrix.custom }}"
