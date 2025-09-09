@@ -14,7 +14,7 @@ jobs:
   steps:
    - name: echo staging
      run: echo " tests are done "
-  deploy-prod:
+ deploy-prod:
   runs-on: ubuntu-latest
   environment: Prod
   needs: e2e-testing
