@@ -4,7 +4,7 @@ on:
 jobs:
  deploy-staging:
   runs-on: ubuntu-latest
-  env: Staging
+  environment: Staging
   steps:
    - name: echo staging
-     run: echo " ${{env.MY_ENV_VALUE}} "
+     run: echo " ${{vars.MY_ENV_VALUE}} "
