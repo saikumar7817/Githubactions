@@ -1,6 +1,7 @@
 name: Matrix with Include
 
-on: [push]
+on:
+ workflow_dispatch:
 
 jobs:
   test:
