@@ -10,6 +10,6 @@ jobs:
    runs-on: ubuntu-latest
    environment: ${{inputs.target-env}}
    steps:
-    -name: echo-vars
-     run: |
-      echo "env variable is: ${{vars.MY_ENV_VALUE}}"
+    - name: echo-vars
+      run: |
+       echo "env variable is: ${{vars.MY_ENV_VALUE}}"
